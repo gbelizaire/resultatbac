@@ -1,0 +1,89 @@
+
+<div class="row">
+  <h1 class="text-center entete k1">Résultat du bac Haïtien 2017-2018</h1>
+  <h4 class="text-center k"><span class="badge badge-warning entete">{{nbverification}}</span> 
+    <span class="verification">Vérifications</span>
+  </h4>
+ 
+  <div class="col-md-6 col-md-offset-3">
+   
+ 
+     
+    <div class="form-group">
+      <p class="arrondi">
+       
+      <input  type="text" 
+              pattern="[0-9]{1,10}"
+              maxlength="10" 
+              name="Matri" id="Matri" 
+              oninput="this.value=this.value.replace(/[^0-9]/g,'');" 
+              onfocus="this.value=''"
+              class="form-control centrer" 
+              value=""  
+              required="required"
+              title=""
+              #Matricule
+              placeholder="Matricule ici"
+              autofocus
+      >
+      </p>   
+      <p>
+         <button type="button" class="btn btn-success btn-sm bb" (click)="Affiche(Matricule.value)">
+           Bac Regulier</button> 
+           <!-- <button type="button" class="btn btn-danger btn-sm bb" (click)="Affichextra(Matricule.value,'E')">
+            Extra-Ordinaire</button>   -->
+            <button type="button" class="btn btn-danger btn-sm bb" (click)="AfficheP(Matricule.value)">Mon centre</button>
+            <button type="button" class="btn btn-primary btn-sm bb1" (click)="AffichePermanent(Matricule.value,'B')">Bac Permanent</button>  
+         <!-- <button type="button" class="btn btn-primary btn-sm bb1" (click)="AfficheP(Matricule.value)">Trouve mon centre</button> -->
+         <!-- <button type="button" class="btn btn-success btn-sm bb" (click)="AfficheB(Matricule.value)" >Bac Unique</button> -->
+        <p>
+    </div>
+    <div *ngIf="res"> 
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <span class="mention">
+            {{res.Nom}}  {{res.Prenom}} 
+            <span *ngIf="affiche =='R'">({{res.Code_Section}})</span>
+            <span *ngIf="affiche =='C'"> - {{res.Matricule}}</span>
+        </span>
+       </div>
+        <div class="panel-body">
+          <span *ngIf="affiche =='R'">
+          <table class="table table-condensed table-hover table-s k1">
+            <thead>
+              <tr>
+                <th>Matiere</th>
+                <th>Note</th>
+                <th>Coefficient</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let note of notes" [class.rouge]="note.A_Refaire=='TRUE'">
+                <td>{{note.Libelle_Matiere}}</td>
+                <td>{{note.Note_Finale}}</td>
+                <td>{{note.Coefficient}}</td>
+              </tr>
+            </tbody>
+          </table>
+          </span>
+          <span *ngIf="affiche =='C'">
+               <p *ngIf="moncentre" class="entete k1"> {{moncentre.Siege}} </p> -
+               <p *ngIf="moncentre" class="entete k1"> {{moncentre.Centre}} </p> -
+               <p *ngIf="moncentre" class="entete k1"> {{moncentre.Adresse}} </p>
+               
+
+          </span>
+         </div>
+        <div class="panel-footer" *ngIf="affiche =='R'">
+         <span class="mention" *ngIf="resume.Tot">({{resume.Tot}}/{{resume.TotCoef}}) - {{resume.Mention}}</span>
+         <span class="verification">-{{res.Matricule}}</span>
+        </div>
+      </div>
+    </div>
+    <!-- {{res.Matricule}} <br/>
+    <span>{{res | json}}</span> -->
+    
+   
+ </div>
+
+</div>

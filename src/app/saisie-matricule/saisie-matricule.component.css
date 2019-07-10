@@ -1,0 +1,55 @@
+.arrondi {
+border-radius: 5px;
+border: 1px solid lightgray;
+
+margin: 24 24;
+padding: 10px 10px;
+
+}
+.mention{
+    text-align: center;
+    font-size: 1.5em;
+    font-weight: bold;
+}
+.badge-warning {
+  background-color: black;
+}
+.k1{
+    margin-bottom: 2px;
+    padding-bottom: 1px;
+}
+.k{
+    margin: 2px;
+    padding: 0;
+}
+.vert{
+    color: green;
+}
+.rouge{
+    color:red;
+}
+.centrer{
+    text-align: center;
+    font-weight: bolder;
+    font-size: 2em;
+    height: 2em;
+}
+.bb{
+    width: 30%;
+    margin-left: 2%;
+}
+.bb1{
+    /*width: 60%;*/
+    width: 30%;
+    margin-left: 2%;
+}
+.entete{
+   
+    font-family: 'Amita';font-size: 20px;
+    font-weight: bold;
+}
+.verification{
+    font-family: 'Amita';font-size: 10px;
+    font-weight:bold;
+    font-style: italic;
+}
